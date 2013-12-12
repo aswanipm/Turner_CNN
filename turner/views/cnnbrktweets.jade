@@ -2,7 +2,7 @@ extends layout
 block content
         h1 No of tweets Showing : #{noOfTweets}
         div(class = "tweets-container")
-            a(class="twitter-timeline", href="https://twitter.com/cnnbrk",data-widget-id="411006653102686208",data-tweet-limit="#{noOfTweets}") Tweets by @cnnbrk
+            a(class="twitter-timeline", href="https://twitter.com/cnnbrk",data-chrome="nofooter noheader transparent",data-widget-id="411006653102686208",data-tweet-limit="#{noOfTweets}") Tweets by @cnnbrk
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             script
                 $(window).load(function(){
