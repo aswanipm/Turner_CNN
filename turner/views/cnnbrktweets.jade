@@ -1,0 +1,38 @@
+extends layout
+block content
+        h1 No of tweets Showing : #{noOfTweets}
+        div(class = "tweets-container")
+            a(class="twitter-timeline", href="https://twitter.com/cnnbrk",data-widget-id="411006653102686208",data-tweet-limit="#{noOfTweets}") Tweets by @cnnbrk
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            script
+                $(window).load(function(){
+                console.log($(window).width())  
+                   setTimeout(function(){$('#twitter-widget-0').css({'width':$(window).width() -142+"px",'max-width':$(window).width()-142+"px"})
+                   $('#twitter-widget-0').contents().find('body').append('<style>\
+                  @media (min-width: 600px) and (max-width:1500px) {\
+                \
+                      .stream ol li{width:40% !important;float:left !important;margin-right:1%;min-height:90px;}\
+                      }\
+                    @media (min-width: 200px) and(max-width: 599px) {\
+                        \
+                      .stream ol li{width:100% !important }\
+                      }\
+                 </style>')
+                 },500)
+                })
+                $(window).resize(function(){
+                    var w = $(window).width()-142; 
+                        if( w < 600){
+                            $('#twitter-widget-0').css({'width':'100%','max-width':'100%'})
+                              $('#twitter-widget-0').contents().find('body').find('.stream ol li').css({"width":"100% !important"})
+                        }
+                        else{
+                        console.log(w)
+                        $('#twitter-widget-0').css({'width':w+"px",'max-width':w+"px"})
+                        $('#twitter-widget-0').contents().find('body').css("width",w+"px")
+                        $('#twitter-widget-0').contents().find('body').find('.stream ol li').css({"width":"40% !important","float":"left","min-height":"90px","margin-right":"1%"})
+                       
+                        }
+                })
+                
+            
